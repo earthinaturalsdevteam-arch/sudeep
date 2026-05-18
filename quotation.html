@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create New Quotation</title>
+  <link rel="stylesheet" href="quotation.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div class="page">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <span class="bc-link">Finance</span>
+    <span class="bc-sep">›</span>
+    <span class="bc-link">Invoice</span>
+    <span class="bc-sep">›</span>
+    <span class="bc-active">Create Quotation</span>
+  </div>
+  <h1 class="page-title">Create New Quotation</h1>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 1: CLIENT BILLING DETAILS          -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="form-layout">
+    <div class="section-label-col">
+      <div class="section-label">Client Billing Details</div>
+    </div>
+    <div class="section-card">
+
+      <!-- Radio -->
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" name="clientType" value="existed" checked/>
+          <span class="radio-custom"></span>
+          Existed Client/Project
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="clientType" value="new"/>
+          <span class="radio-custom"></span>
+          New Client/Project
+        </label>
+      </div>
+
+      <!-- Existed Client Section -->
+      <div id="existedClientSection">
+        <div class="field-group mt-16">
+          <label class="field-label">Project</label>
+          <div class="select-wrap">
+            <select class="custom-select" id="projectSelect">
+              <option>Comaas</option>
+              <option>Krimay Website</option>
+              <option>CF Website</option>
+            </select>
+            <span class="sel-arrow">∨</span>
+          </div>
+        </div>
+        <div class="client-info-card mt-12">
+          <div class="client-info-top">
+            <div>
+              <div class="client-info-name">Sruthi Technologies</div>
+              <div class="client-info-gst">GST: 966316348531Y</div>
+              <div class="client-info-addr">Address: 18/267 - cs Peda Yerukapdu, Gudivada, Andhra Pradesh, India - 521301</div>
+              <div class="client-info-phone">Phone No: 75 5252 8585</div>
+            </div>
+            <button class="btn-company-billing">Company Billing Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Client Section -->
+      <div id="newClientSection" class="hidden">
+        <div class="two-col mt-16">
+          <div class="field-group">
+            <label class="field-label">Name Of Company/Client</label>
+            <input type="text" class="input-field" placeholder="Enter the name of company"/>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Phone Number</label>
+            <input type="text" class="input-field" placeholder="0000 0000 00"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Balance Amount -->
+      <div class="balance-section mt-20">
+        <div class="balance-title">Balance Amount</div>
+        <div class="balance-table mt-10">
+          <div class="balance-row">
+            <span class="balance-label">Total Value</span>
+            <span class="balance-val">₹2,01,600</span>
+          </div>
+          <div class="balance-row">
+            <span class="balance-label">Paid Amount</span>
+            <span class="balance-val">₹1,13,000</span>
+          </div>
+          <div class="balance-row balance-total-row">
+            <span class="balance-label fw-600">Balance</span>
+            <span class="balance-amt-highlight">₹88,600</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 2: QUOTATION DETAILS               -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="form-layout">
+    <div class="section-label-col">
+      <div class="section-label">Quotation Details</div>
+    </div>
+    <div class="section-card">
+
+      <div class="field-group">
+        <label class="field-label">Quotation Number</label>
+        <input type="text" class="input-field" value="QT -2023 -0987"/>
+      </div>
+
+      <div class="two-col mt-16">
+        <div class="field-group">
+          <label class="field-label">Quote Date</label>
+          <div class="date-wrap">
+            <input type="text" class="input-field date-input" id="quoteDate" placeholder="dd-mm-yyyy" readonly value="24/07/2026"/>
+            <span class="date-icon date-trigger" data-target="quoteDate" data-cal="quoteCal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </span>
+            <div class="calendar-popup hidden" id="quoteCal"></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Due Date</label>
+          <div class="date-wrap">
+            <input type="text" class="input-field date-input" id="dueDate" placeholder="dd-mm-yyyy" readonly value="29/07/2026"/>
+            <span class="date-icon date-trigger" data-target="dueDate" data-cal="dueCal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </span>
+            <div class="calendar-popup hidden" id="dueCal"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 3: SERVICE DETAILS                 -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="form-layout">
+    <div class="section-label-col">
+      <div class="section-label">Service Details</div>
+      <div class="section-sublabel">Pricing, taxes, Service Information</div>
+    </div>
+    <div class="section-card">
+
+      <p class="qty-hint">Enable quantity to calculate pricing based on units. Amount will update automatically ( Qty × Rate = Amount ).</p>
+
+      <!-- Service Table -->
+      <div class="service-table-wrap mt-12">
+        <table class="service-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Description</th>
+              <th>Qty</th>
+              <th>Rate/Cost</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="serviceRows">
+            <tr class="service-row">
+              <td><input type="text" class="svc-input" value="Website Development"/></td>
+              <td><input type="text" class="svc-input" value="React, CSS and advanced coding language website"/></td>
+              <td><input type="number" class="svc-input qty-input" value="2" min="0"/></td>
+              <td>
+                <div class="rupee-cell">
+                  <span class="rupee-pre">₹</span>
+                  <input type="number" class="svc-input rate-input" value="35000" min="0"/>
+                </div>
+              </td>
+              <td>
+                <div class="rupee-cell">
+                  <span class="rupee-pre">₹</span>
+                  <input type="number" class="svc-input amt-input" value="70000" readonly/>
+                </div>
+              </td>
+              <td>
+                <button class="del-row-btn" title="Delete">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+                </button>
+              </td>
+            </tr>
+            <tr class="service-row">
+              <td><input type="text" class="svc-input" value="Android App"/></td>
+              <td><input type="text" class="svc-input" value="React Native e commerce app"/></td>
+              <td><input type="number" class="svc-input qty-input" value="0" min="0"/></td>
+              <td>
+                <div class="rupee-cell">
+                  <span class="rupee-pre">₹</span>
+                  <input type="number" class="svc-input rate-input" value="5000" min="0"/>
+                </div>
+              </td>
+              <td>
+                <div class="rupee-cell">
+                  <span class="rupee-pre">₹</span>
+                  <input type="number" class="svc-input amt-input" value="5000" readonly/>
+                </div>
+              </td>
+              <td>
+                <button class="del-row-btn" title="Delete">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+                </button>
+              </td>
+            </tr>
+            <tr class="service-row">
+              <td><input type="text" class="svc-input" placeholder="Enter service"/></td>
+              <td><input type="text" class="svc-input" placeholder="Enter discription"/></td>
+              <td><input type="number" class="svc-input qty-input" value="0" min="0"/></td>
+              <td>
+                <div class="rupee-cell">
+                  <span class="rupee-pre">₹</span>
+                  <input type="number" class="svc-input rate-input" value="0" min="0"/>
+                </div>
+              </td>
+              <td>
+                <div class="rupee-cell">
+                  <span class="rupee-pre">₹</span>
+                  <input type="number" class="svc-input amt-input" value="0" readonly/>
+                </div>
+              </td>
+              <td>
+                <button class="del-row-btn" title="Delete">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add Row -->
+      <button class="add-row-btn mt-12" id="addRowBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        Add Row
+      </button>
+
+      <!-- Discount -->
+      <div class="discount-row mt-16">
+        <span class="discount-label">Discount</span>
+        <div class="discount-inputs">
+          <div class="select-wrap discount-type-wrap">
+            <select class="custom-select discount-select" id="discountType">
+              <option value="percent">%</option>
+              <option value="flat">₹</option>
+            </select>
+            <span class="sel-arrow">∨</span>
+          </div>
+          <input type="number" class="input-field discount-input" id="discountInput" value="0" min="0"/>
+        </div>
+      </div>
+
+      <!-- Pricing Summary -->
+      <div class="pricing-summary mt-20">
+        <div class="pricing-title">Pricing Summary</div>
+        <div class="pricing-table mt-10">
+          <div class="pricing-row">
+            <span class="pricing-label">Subtotal Amount</span>
+            <span class="pricing-val" id="subtotalDisplay">₹75,000</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">Discount(%)</span>
+            <span class="pricing-val discount-neg" id="discountDisplay">-₹3,750</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">Tax Amount(18%)</span>
+            <span class="pricing-val" id="taxDisplay">₹12,825</span>
+          </div>
+          <div class="pricing-row pricing-total-row">
+            <span class="pricing-label fw-700">Total Amount</span>
+            <span class="pricing-total-val" id="totalDisplay">₹83,075</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 4: CUSTOMER NOTE                   -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="form-layout">
+    <div class="section-label-col">
+      <div class="section-label">Customer Note</div>
+    </div>
+    <div class="section-card">
+      <div class="note-card-inner">
+        <div class="note-top-row">
+          <span class="field-label" style="margin-bottom:0">Customer Note</span>
+          <button class="btn-edit" onclick="openModal('noteModal')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            <span id="note-btn-txt">Edit</span>
+          </button>
+        </div>
+        <p class="note-text mt-10" id="note-view">Thank you for your business. We look forward to working with you on this project.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 5: BANK DETAILS                    -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="form-layout">
+    <div class="section-label-col">
+      <div class="section-label">Bank Details</div>
+    </div>
+    <div class="section-card">
+      <div class="edit-section-header">
+        <span></span>
+        <button class="btn-edit" onclick="openModal('bankModal')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          <span id="bank-btn-txt">Edit</span>
+        </button>
+      </div>
+      <!-- Bank VIEW -->
+      <div class="bank-details" id="bank-view">
+        <div class="bank-row"><span class="bank-key">Bank Name:</span><span class="bank-val" id="bv-name">Bandhan Bank</span></div>
+        <div class="bank-row"><span class="bank-key">Account Holder Name:</span><span class="bank-val" id="bv-holder">Saanvika Software Solutions</span></div>
+        <div class="bank-row"><span class="bank-key">Account Number:</span><span class="bank-val" id="bv-acc">55 5252 8585 46435757</span></div>
+        <div class="bank-row"><span class="bank-key">IFSC Code:</span><span class="bank-val" id="bv-ifsc">BHA465892465</span></div>
+        <div class="bank-row"><span class="bank-key">Account Type:</span><span class="bank-val" id="bv-type">Current</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 6: TERMS & CONDITIONS              -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="form-layout">
+    <div class="section-label-col">
+      <div class="section-label">Terms &amp; Conditions</div>
+    </div>
+    <div class="section-card">
+      <div class="edit-section-header">
+        <span class="field-label">Terms &amp; Conditions Points</span>
+        <button class="btn-edit" onclick="openModal('termsModal')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          <span id="terms-btn-txt">Edit</span>
+        </button>
+      </div>
+      <ol class="terms-list" id="terms-view">
+        <li>Payments are accepted through approved online payment methods only.</li>
+        <li>Additional work or scope changes may result in revised pricing and timelines.</li>
+        <li>Required content, approvals, and credentials should be provided by the client for smooth project execution.</li>
+        <li>Third-party services and platform charges will be handled based on the agreed project requirements.</li>
+        <li>This quotation/invoice is subject to the agreed scope, timeline, and payment terms.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 7: AUTHORIZED SIGNATORY            -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="form-layout">
+    <div class="section-label-col">
+      <div class="section-label">Authorized Signatory</div>
+    </div>
+    <div class="section-card">
+      <div class="edit-section-header">
+        <span></span>
+        <button class="btn-edit" onclick="triggerSignatureUpload()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Edit
+        </button>
+      </div>
+      <input type="file" id="sigUpload" accept="image/*" class="hidden" onchange="previewSignature(event)"/>
+      <div class="signature-box">
+        <div class="signature-img-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90" width="160" height="90" style="border-radius:6px;display:block;">
+            <!-- Paper background -->
+            <rect width="160" height="90" fill="#f0efec" rx="4"/>
+            <!-- Subtle paper texture lines -->
+            <line x1="0" y1="30" x2="160" y2="30" stroke="#e0ddd8" stroke-width="0.4"/>
+            <line x1="0" y1="60" x2="160" y2="60" stroke="#e0ddd8" stroke-width="0.4"/>
+            <!-- Signature scrawl -->
+            <path d="M30 55 Q38 38 48 50 Q54 58 60 45 Q64 36 70 48" fill="none" stroke="#1a1a2e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M70 48 Q74 55 80 44" fill="none" stroke="#1a1a2e" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- Oval stamp -->
+            <ellipse cx="72" cy="58" rx="26" ry="18" fill="none" stroke="#2563eb" stroke-width="1.8" opacity="0.75"/>
+            <ellipse cx="72" cy="58" rx="22" ry="14" fill="none" stroke="#2563eb" stroke-width="0.8" opacity="0.5"/>
+            <!-- Stamp text top arc -->
+            <path id="topArc" d="M 50 52 A 26 18 0 0 1 94 52" fill="none"/>
+            <text font-size="5" fill="#2563eb" opacity="0.8" font-family="Inter,sans-serif" font-weight="600">
+              <textPath href="#topArc" startOffset="10%">AUTHORIZED SIGNATORY</textPath>
+            </text>
+            <!-- Stamp center text -->
+            <text x="72" y="60" text-anchor="middle" font-size="5.5" fill="#2563eb" opacity="0.85" font-family="Inter,sans-serif" font-weight="700">VERIFIED</text>
+            <!-- Stamp bottom arc -->
+            <path id="botArc" d="M 50 64 A 26 18 0 0 0 94 64" fill="none"/>
+            <text font-size="4.5" fill="#2563eb" opacity="0.7" font-family="Inter,sans-serif">
+              <textPath href="#botArc" startOffset="15%">SAANVIKA SOFTWARE</textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- ACTION BUTTONS                             -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="action-buttons">
+    <button class="btn-cancel" onclick="window.location.href='billing.html'">Cancel</button>
+    <button class="btn-create" onclick="createQuotation()">Create Quotation</button>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay hidden" id="successOverlay"></div>
+  <div class="modal hidden" id="successModal" style="max-width:380px;text-align:center;">
+    <div class="modal-body" style="padding:36px 28px 20px;align-items:center;gap:14px;">
+      <div style="width:60px;height:60px;border-radius:50%;background:#f0fdf4;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <h3 style="font-size:17px;font-weight:700;color:#0f172a;margin-bottom:6px;">Quotation Created!</h3>
+      <p style="font-size:13.5px;color:#6b7280;line-height:1.6;">Your quotation has been successfully created and saved.</p>
+    </div>
+    <div class="modal-footer" style="justify-content:center;gap:12px;">
+      <button class="btn-cancel-edit" onclick="closeSuccessModal()">Close</button>
+      <button class="btn-save-edit" onclick="window.location.href='billing.html'">Go to Billing</button>
+    </div>
+  </div>
+
+</div>
+<script src="quotation.js"></script>
+
+  <!-- ── MODAL OVERLAY ── -->
+  <div class="modal-overlay hidden" id="modalOverlay" onclick="closeModal()"></div>
+
+  <!-- Customer Note Modal -->
+  <div class="modal hidden" id="noteModal">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Customer Note</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="field-label">Customer Note</label>
+      <textarea class="edit-textarea" id="note-modal-input" rows="5">Thank you for your business. We look forward to working with you on this project.</textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel-edit" onclick="closeModal()">Cancel</button>
+      <button class="btn-save-edit" onclick="saveNote()">Update</button>
+    </div>
+  </div>
+
+  <!-- Bank Details Modal -->
+  <div class="modal hidden" id="bankModal">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Bank Details</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="two-col">
+        <div class="field-group">
+          <label class="field-label">Bank name</label>
+          <input type="text" class="input-field" id="bm-name" value="Bandhan Bank"/>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Account Holder name</label>
+          <input type="text" class="input-field" id="bm-holder" value="Saanvika Software Solutions"/>
+        </div>
+      </div>
+      <div class="two-col mt-12">
+        <div class="field-group">
+          <label class="field-label">Account Number</label>
+          <input type="text" class="input-field" id="bm-acc" value="55 5252 8585 46435757"/>
+        </div>
+        <div class="field-group">
+          <label class="field-label">IFSC Code</label>
+          <input type="text" class="input-field" id="bm-ifsc" value="BHA465892465"/>
+        </div>
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label">Account Type</label>
+        <input type="text" class="input-field" id="bm-type" value="Current" style="max-width:220px"/>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel-edit" onclick="closeModal()">Cancel</button>
+      <button class="btn-save-edit" onclick="saveBank()">Update</button>
+    </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div class="modal hidden" id="termsModal">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Terms &amp; Conditions</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="field-label">Terms &amp; Conditions Points</label>
+      <textarea class="edit-textarea" id="terms-modal-input" rows="8">1. Payments are accepted through approved online payment methods only.
+2. Additional work or scope changes may result in revised pricing and timelines.
+3. Required content, approvals, and credentials should be provided by the client for smooth project execution.
+4. Third-party services and platform charges will be handled based on the agreed project requirements.
+5. This quotation/invoice is subject to the agreed scope, timeline, and payment terms.</textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel-edit" onclick="closeModal()">Cancel</button>
+      <button class="btn-save-edit" onclick="saveTerms()">Update</button>
+    </div>
+  </div>
+
+</body>
+</html>
